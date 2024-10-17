@@ -1,23 +1,24 @@
-# PKGBUILD
 pkgname=image-optimizer
 pkgver=1.0.0
 pkgrel=1
 pkgdesc="Batch image optimization tool with support for JPEG, PNG, and WebP formats"
 arch=('any')
-url="https://github.com/yourusername/image-optimizer"
+url="https://github.com/AnubhavMazumder/image-optimizer"
 license=('MIT')
 depends=('bash' 'imagemagick' 'jpegoptim' 'optipng' 'libwebp')
 makedepends=('git')
 source=("git+https://github.com/AnubhavMazumder/image-optimizer.git")
-sha256sums=('SKIP')
+sha256sums=('SKIP') # Replace with the actual checksum
 
 package() {
-    cd "$srcdir/$pkgname"
-    
+    pwd
+    cd "$srcdir/image-optimizer"
+    pwd
+
     # Install the main script
-    install -Dm755 "bin/image-optimizer" "$pkgdir/usr/bin/image-optimizer"
-    
+    install -Dm755 "image-optimizer/bin/image-optimizer" "$pkgdir/usr/bin/image-optimizer"
+
     # Install documentation
-    install -Dm644 "README.md" "$pkgdir/usr/share/doc/$pkgname/README.md"
-    install -Dm644 "LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+    install -Dm644 "image-optimizer/share/doc/image-optimizer/README.md" "$pkgdir/usr/share/doc/$pkgname/README.md"
+    install -Dm644 "image-optimizer/share/licenses/image-optimizer/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
